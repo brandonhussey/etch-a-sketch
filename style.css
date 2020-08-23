@@ -12,6 +12,6 @@
   margin: 0 auto;
 }
 
-.grid-item {
-  border: 1px solid #ddd;
+.grid-lines {
+  border: 1px solid rgb(184, 184, 184);
 }

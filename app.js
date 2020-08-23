@@ -4,6 +4,7 @@ const resizeBtn = document.querySelector(".resize");
 const rainbowBtn = document.querySelector(".rainbow");
 const sketchBtn = document.querySelector(".sketch");
 const inkBtn = document.querySelector(".ink");
+const gridBtn = document.querySelector(".grid");
 
 let squares = document.querySelectorAll(".grid-item");
 let drawColor = "black";
@@ -13,6 +14,14 @@ let size = 16;
 
 clearBtn.addEventListener("click", clear);
 resizeBtn.addEventListener("click", resizeGrid);
+gridBtn.addEventListener("click", function () {
+  // squares.forEach((square) => {
+  //   square.classList.toggle(".grid-item");
+  // });
+  squares.forEach((square) => {
+    square.classList.toggle("grid-lines");
+  });
+});
 
 //change the color to black, apply it to each square on mouse over
 inkBtn.addEventListener("click", function () {
