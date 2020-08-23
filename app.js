@@ -9,8 +9,12 @@ let squares = document.querySelectorAll(".grid-item");
 let drawColor = "black";
 let size = 16;
 
+// EVENT LISTENERS
+
 clearBtn.addEventListener("click", clear);
 resizeBtn.addEventListener("click", resizeGrid);
+
+//change the color to black, apply it to each square on mouse over
 inkBtn.addEventListener("click", function () {
   squares.forEach((square) => {
     square.addEventListener("mouseover", function () {
@@ -19,6 +23,8 @@ inkBtn.addEventListener("click", function () {
     });
   });
 });
+
+//change to random color
 rainbowBtn.addEventListener("click", function () {
   squares.forEach((square) => {
     square.addEventListener("mouseover", function () {
@@ -27,6 +33,8 @@ rainbowBtn.addEventListener("click", function () {
     });
   });
 });
+
+//need to update this, not working properly
 sketchBtn.addEventListener("click", function () {
   drawColor = "black";
   let opacity = 0;
@@ -38,9 +46,12 @@ sketchBtn.addEventListener("click", function () {
   });
 });
 
+// FUNCTIONS
+
 function createGrid() {
   container.style.setProperty("--grid-size", size);
 
+  //create the grid of divs based on the inputed grid size
   for (i = 0; i < size * size; i++) {
     let cell = document.createElement("div");
     container.appendChild(cell).className = "grid-item";
@@ -50,6 +61,7 @@ function createGrid() {
 function draw() {
   squares = document.querySelectorAll(".grid-item");
 
+  //draw using the color based on the event listeners
   squares.forEach((square) => {
     square.addEventListener("mouseover", function () {
       square.style.backgroundColor = drawColor;
@@ -57,6 +69,8 @@ function draw() {
   });
 }
 
+//prompts for a number so long as it isnt empty or not a number
+//resets the grid, then creates new one
 function resizeGrid() {
   do {
     size = prompt("Enter a number from 1-125");
@@ -76,6 +90,7 @@ function randomColor() {
   drawColor = "rgb(" + x + "," + y + "," + z + ")";
 }
 
+//clears the grid by setting all the backgrounds of divs to white
 function clear() {
   squares.forEach((square) => {
     square.style.backgroundColor = "white";
